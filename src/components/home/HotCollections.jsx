@@ -4,6 +4,8 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const HotCollections = () => {
     const [collections, setCollections] = useState([]);
@@ -23,7 +25,35 @@ const HotCollections = () => {
     fetchCollections();
   }, []);
 
-  
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  };
 
   return (
     <section id="section-collections" className="no-bottom">
@@ -35,6 +65,7 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+          <Slider {...settings}>
             {collections.map((collection, index) => (
               <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
                 <div className="nft_coll">
@@ -58,6 +89,7 @@ const HotCollections = () => {
                 </div>
               </div>
             ))}
+          </Slider>
         </div>
       </div>
     </section>
@@ -65,3 +97,4 @@ const HotCollections = () => {
 };
 
 export default HotCollections;
+
