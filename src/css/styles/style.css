@@ -12706,6 +12706,7 @@ a.read_more i {
 
 .switch {
   margin-bottom: -5px;
+  appearance: none;
   -webkit-appearance: none;
   height: 24px;
   width: 44px;
@@ -12713,6 +12714,38 @@ a.read_more i {
   border-radius: 60px;
   position: relative;
   cursor: poInter;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 28px;
+  line-height: 42px;
+  cursor: pointer;
+}
+
+.custom-prev {
+  left: -20px;
+}
+
+.custom-next {
+  right: -20px;
+}
+
+.slick-slider {
+  position: relative;
+}
+
+.slick-list {
+  overflow: visible;
 }
 
 .switch::after {
@@ -15145,7 +15178,7 @@ a.btn-slider:hover {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 
 .testi-slider .flex-control-paging li a {

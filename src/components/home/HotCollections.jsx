@@ -25,13 +25,46 @@ const HotCollections = () => {
     fetchCollections();
   }, []);
 
+  const NextArrow = ({ onClick }) => {
+    return (
+      <button
+        className="custom-arrow custom-next"
+        onClick={onClick}
+        type="button"
+      >
+        &#8250;
+      </button>
+    );
+  };
+
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <button
+        className="custom-arrow custom-prev"
+        onClick={onClick}
+        type="button"
+      >
+        &#8249;
+      </button>
+    );
+  };
+
   const settings = {
-    dots: true,
-    infinite: true,
+    dots: false,
+    infinite: collections.length > 4,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
+    accessibility: true,
+    focusOnSelect: false,
+    pauseOnFocus: false,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: () => {
+      const active = document.activeElement;
+      if (active instanceof HTMLElement) active.blur();
+    },
     responsive: [
       {
         breakpoint: 1200,
@@ -68,16 +101,16 @@ const HotCollections = () => {
           </div>
           <Slider {...settings}>
             {collections.map((collection, index) => (
-              <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+              <div key={collection.nftId}>
                 <div className="nft_coll">
                   <div className="nft_wrap">
                     <Link to={`/item-details/${collection.nftId}`}>
-                      <img src={collection.nftImage} className="lazy img-fluid" alt={collection.title} />
+                      <img src={collection.nftImage || nftImage} className="lazy img-fluid" alt={collection.title} />
                     </Link>
                   </div>
                   <div className="nft_coll_pp">
                     <Link to="/author">
-                      <img className="lazy pp-coll" src={collection.authorImage} alt={collection.authorName} />
+                      <img className="lazy pp-coll" src={collection.authorImage || AuthorImage} alt={collection.authorName} />
                     </Link>
                     <i className="fa fa-check"></i>
                   </div>
