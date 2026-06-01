@@ -4,11 +4,13 @@ import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Slider from "react-slick";
+import Skeleton from "../UI/Skeleton";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const HotCollections = () => {
     const [collections, setCollections] = useState([]);
+    const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCollections = async () => {
@@ -19,6 +21,8 @@ const HotCollections = () => {
         setCollections(data);
       } catch (error) {
         console.error("Error fetching hot collections:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -99,7 +103,29 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <Slider {...settings}>
+          {loading ? (
+            <div className="row">
+              {[...Array(4)].map((_, index) => (
+                <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" key={index}>
+                  <div className="nft_coll">
+                    <div className="nft_wrap">
+                      <Skeleton width="100%" height="250px" borderRadius="8px" />
+                    </div>
+                    <div className="nft_coll_pp">
+                      <Skeleton width="50px" height="50px" borderRadius="50%" />
+                    </div>
+                    <div className="nft_coll_info">
+                      <Skeleton width="80%" height="20px" borderRadius="4px" />
+                      <div style={{ marginTop: "8px" }}>
+                        <Skeleton width="60%" height="16px" borderRadius="4px" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <Slider {...settings}>
             {collections.map((collection, index) => (
               <div key={collection.nftId}>
                 <div className="nft_coll">
@@ -123,7 +149,8 @@ const HotCollections = () => {
                 </div>
               </div>
             ))}
-          </Slider>
+            </Slider>
+          )}
         </div>
       </div>
     </section>
