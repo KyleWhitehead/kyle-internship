@@ -13207,12 +13207,14 @@ a.read_more i {
 
 .nft_coll {
   background: #ffffff;
-  padding-bottom: 10px;
-  border: solid 1px #dddddd;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 20px;
+  border: solid 1px #e8e8e8;
+  border-radius: 12px;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
 
 .nft_coll.style-2 {
@@ -13228,26 +13230,32 @@ a.read_more i {
 
 .dark-scheme .nft_coll {
   background: #292f45;
-  border-color: #292f45;
+  border-color: #404558;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .text-light .nft_coll {
-  background: rgba(255, 255, 255, 0.04);
-  border: solid 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border: solid 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .nft_wrap {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 220px;
   overflow: hidden;
-  border-radius: 10px 10px 0 0;
-  -moz-border-radius: 10px 10px 0 0;
-  -webkit-border-radius: 10px 10px 0 0;
+  border-radius: 12px 12px 0 0;
+  -moz-border-radius: 12px 12px 0 0;
+  -webkit-border-radius: 12px 12px 0 0;
 }
 
 .nft_coll:hover img {
   transform: scale(1.05);
+}
+
+.nft_coll:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .nft_coll {
@@ -13256,15 +13264,18 @@ a.read_more i {
 
 .nft_coll_info {
   padding-bottom: 10px;
+  padding-top: 15px;
 }
 
 .nft_coll h4 {
-  font-size: 16px;
-  margin-bottom: 0px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .nft_coll span {
-  font-size: 14px;
+  font-size: 13px;
+  color: #999;
 }
 
 .nft_coll p {
@@ -13276,35 +13287,36 @@ a.read_more i {
 }
 
 .nft_coll_pp {
-  width: 60px;
+  width: 70px;
   display: block;
   margin: 0 auto;
-  margin-top: -30px;
+  margin-top: -35px;
   margin-bottom: 10px;
   position: relative;
 }
 
 .nft_coll_pp img {
-  width: 60px;
-  height: auto;
+  width: 70px;
+  height: 70px;
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
-  border: solid 5px #ffffff;
+  border: solid 4px #ffffff;
   background: #ffffff;
+  object-fit: cover;
 }
 
 .nft_coll_pp i {
-  font-size: 10px;
+  font-size: 12px;
   color: #ffffff;
-  background: #333;
+  background: #3da1ff;
   border-radius: 100%;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
-  padding: 3px;
+  padding: 5px 6px;
   position: absolute;
-  bottom: 4px;
-  right: 5px;
+  bottom: 0px;
+  right: 0px;
 }
 
 .author_list {
