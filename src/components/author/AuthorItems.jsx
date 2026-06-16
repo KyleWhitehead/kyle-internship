@@ -104,8 +104,8 @@ const AuthorItems = () => {
                   </div>
 
                   {/* Dynamic item-details route if you have one, e.g., /item-details/${item.id} */}
-
-                  <Link to={`/item-details/${item.id}`}>
+                
+                <Link to={`/item-details/${item.nftId}`}>
                     <img
                       src={item.nftImage || nftImage}
                       className="lazy nft__item_preview"
@@ -115,7 +115,7 @@ const AuthorItems = () => {
                 </div>
 
                 <div className="nft__item_info">
-                  <Link to={`/item-details/${item.id}`}>
+                  <Link to={`/item-details/${item.nftId}`}>
                     <h4>{item.title}</h4>
                   </Link>
 
