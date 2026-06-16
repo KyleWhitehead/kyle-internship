@@ -30,8 +30,6 @@ const AuthorItems = () => {
 
         const data = await response.json();
 
-        console.log("Author data:", data);
-
         setAuthor(data);
       } catch (error) {
         console.error("Error fetching author items:", error);
@@ -39,6 +37,7 @@ const AuthorItems = () => {
         setLoading(false);
       }
     };
+    console.log("API Data")
 
     fetchAuthorItems();
   }, [id]);
