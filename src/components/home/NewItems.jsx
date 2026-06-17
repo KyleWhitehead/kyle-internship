@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
@@ -6,10 +6,11 @@ import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 import Slider from "react-slick";
 
+
 const NewItems = () => {
-  const [newItems, setNewItems] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-  const [currentTime, setCurrentTime] = React.useState({});
+  const [newItems, setNewItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [currentTime, setCurrentTime] = useState({});
  
   useEffect(() => {
     const fetchNewItems = async () => {
@@ -117,25 +118,31 @@ if (loading) {
 }
   return (
     <section id="section-items" className="no-bottom">
-      <div className="container">
+      <div  className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div className="text-center" data-aos="fade-up" data-aos-duration="800">
               <h2>New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+          <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+
           <Slider {...settings}>
-          {newItems.map((newItem) => (
+          {newItems.map((newItem, index) => (
             <div key={newItem.id} style={{ padding: "5px" }}>
-              <div className="nft__item">
+              <div className="nft__item"
+                   data-aos="fade-up"
+                   data-aos-duration="800"
+                   data-aos-delay={index * 80}
+              >
                 <div className="author_list_pp">
                   <Link
                     to={`/author/${newItem.authorId}`}
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title={`Creator ID: ${newItem.authorId}`}
-                  >
+                    >
                     <img className="lazy" src={newItem.authorImage} alt={newItem.title} />
                     <i className="fa fa-check"></i>
                   </Link>
@@ -183,6 +190,7 @@ if (loading) {
             </div>
           ))}
           </Slider>
+          </div>
         </div>
       </div>
     </section>

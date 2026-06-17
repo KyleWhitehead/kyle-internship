@@ -5,6 +5,8 @@ import { useParams, Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 
 import nftImage from "../../images/nftImage.jpg";
+import Skeleton from "../UI/Skeleton";
+
 
 const AuthorItems = () => {
   const { id } = useParams();
@@ -43,19 +45,19 @@ const AuthorItems = () => {
   }, [id]);
 
   if (loading) {
-    return <div className="container py-5 text-center">Loading...</div>;
+    return <div className="container py-5 text-center"><Skeleton width="100%" height="40px" borderRadius="4px" /></div>;
   }
 
   // If no ID was provided in the URL or the API found nothing
 
   if (!id || !author) {
     return (
-      <div className="container py-5 text-center">No author data found.</div>
+      <div className="container py-5 text-center"><Skeleton width="100%" height="40px" borderRadius="4px" /></div>
     );
   }
 
   return (
-    <div className="de_tab_content">
+    <div data-aos="fade-in" className="de_tab_content">
       <div className="tab-1">
         <div className="row">
           {/* Using optional chaining to prevent crashes */}

@@ -15,27 +15,43 @@ const Landing = () => {
       <div className="v-center">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-md-6">
+            <div className="col-md-6"
+                 data-aos="fade-right"
+                data-aos-duration="900"
+                data-aos-easing="ease-out-cubic"
+                data-aos-delay="100"
+              >
               <div className="spacer-single"></div>
-              <h6>
+              <h6 data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 <span className="text-uppercase id-color-2">
                   Ultraverse Market
                 </span>
               </h6>
               <div className="spacer-10"></div>
-              <h1>Create, sell or collect digital items.</h1>
-              <p className="lead">
+              <h1 data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+                Create, sell or collect digital items.
+              </h1>
+              <p className="lead"
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay="250"
+              >
                 Unit of data stored on a digital ledger, called a blockchain,
                 that certifies a digital asset to be unique and therefore not
                 interchangeable
               </p>
-              <div className="spacer-10"></div>
+              <div className="spacer-10" data-aos="fade-up" data-aos-duration="800" data-aos-delay="250"></div>
               <Link className="btn-main lead" to="/explore">
                 Explore
               </Link>
               <div className="mb-sm-30"></div>
             </div>
-            <div className="col-md-6 xs-hide">
+            <div className="col-md-6 xs-hide"
+              data-aos="zoom-in"
+              data-aos-duration="900"
+              data-aos-easing="ease-out-cubic"
+              data-aos-delay="250"
+            >
               <img src={NFT} className="lazy img-fluid" alt="" />
             </div>
           </div>

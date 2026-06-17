@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorImage from "../images/author_thumbnail.jpg";
 import AuthorItems from "../components/author/AuthorItems";
+import Skeleton from "../components/UI/Skeleton";
+
 
 const Author = () => {
   const { id } = useParams();
@@ -38,7 +40,7 @@ const Author = () => {
   if (loading) {
     return (
       <div className="container py-5 text-center">
-        Loading...
+        <Skeleton width="100%" height="40px" borderRadius="4px" />
       </div>
     );
   }

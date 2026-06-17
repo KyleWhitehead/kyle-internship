@@ -8,6 +8,7 @@ import Skeleton from "../UI/Skeleton";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
 const HotCollections = () => {
     const [collections, setCollections] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -28,6 +29,12 @@ const HotCollections = () => {
 
     fetchCollections();
   }, []);
+
+  useEffect(() => {
+    if (!loading && collections.length > 0 && window.AOS) {
+      window.AOS.refreshHard();
+    }
+  }, [loading, collections]);
 
   const NextArrow = ({ onClick }) => {
     return (
@@ -95,10 +102,13 @@ const HotCollections = () => {
 
   return (
     <section id="section-collections" className="no-bottom">
-      <div className="container">
+      <div data-aos="fade-down-right" className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div className="text-center"
+                 data-aos="fade-up"
+                 data-aos-duration="800"
+            >
               <h2>Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
@@ -125,10 +135,18 @@ const HotCollections = () => {
               ))}
             </div>
           ) : (
+            <div data-aos="fade-up" 
+            data-aos-duration="800"
+            data-aos-delay="150">
             <Slider {...settings}>
             {collections.map((collection, index) => (
               <div key={collection.nftId} style={{ padding: "5px" }}>
-                <div className="nft_coll">
+                <div className="nft_coll"
+                     data-aos="fade-up"
+                     data-aos-duration="800"
+                     data-aos-delay={index * 80}
+                     data-aos-anchor-placement="top-bottom"
+                >
                   <div className="nft_wrap">
                     <Link to={`/item-details/${collection.nftId}`}>
                       <img src={collection.nftImage || nftImage} className="lazy img-fluid" alt={collection.title} />
@@ -150,6 +168,7 @@ const HotCollections = () => {
               </div>
             ))}
             </Slider>
+            </div>
           )}
         </div>
       </div>

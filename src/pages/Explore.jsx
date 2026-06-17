@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import SubHeader from "../images/subheader.jpg";
 import ExploreItems from "../components/explore/ExploreItems";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 const Explore = () => {
   useEffect(() => {
@@ -8,7 +12,7 @@ const Explore = () => {
   }, []);
 
   return (
-    <div id="wrapper">
+    <div data-aos="fade-in" id="wrapper">
       <div className="no-bottom no-top" id="content">
         <div id="top"></div>
 

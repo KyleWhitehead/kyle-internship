@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
+
 
 const TopSellers = () => {
     const [sellers, setSellers] = React.useState([]);
@@ -23,7 +28,7 @@ const TopSellers = () => {
 
   return (
     <section id="section-popular" className="pb-5">
-      <div className="container">
+      <div data-aos="fade-up" className="container">
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
@@ -31,7 +36,7 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div data-aos="fade-up" className="col-md-12">
             <ol className="author_list">
               {sellers.map((seller, index) => (
                 <li key={seller.id || seller.name}>
