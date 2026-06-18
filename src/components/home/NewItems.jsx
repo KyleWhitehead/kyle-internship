@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 import Slider from "react-slick";
@@ -194,20 +192,20 @@ if (loading) {
                       <button>Buy Now</button>
                       <div className="nft__item_share">
                         <h4>Share</h4>
-                        <a href="" target="_blank" rel="noreferrer">
+                        <button type="button" className="share-button">
                           <i className="fa fa-facebook fa-lg"></i>
-                        </a>
-                        <a href="" target="_blank" rel="noreferrer">
+                        </button>
+                        <button type="button" className="share-button">
                           <i className="fa fa-twitter fa-lg"></i>
-                        </a>
-                        <a href="">
+                        </button>
+                        <button type="button" className="share-button">
                           <i className="fa fa-envelope fa-lg"></i>
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
 
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${newItem.nftId}`}>
                     <img
                       src={newItem.nftImage}
                       className="lazy nft__item_preview"
@@ -216,7 +214,7 @@ if (loading) {
                   </Link>
                 </div>
                 <div className="nft__item_info">
-                  <Link to="/item-details">
+                  <Link to={`/item-details/${newItem.nftId}`}>
                     <h4>{newItem.nftId}</h4>
                   </Link>
                   <div className="nft__item_price">{newItem.price}</div>

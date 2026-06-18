@@ -27,7 +27,6 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/author/:id" element={<Author />} />
         <Route path="/author" element={<Author />} />
-        <Route path="/item-details" element={<ItemDetails />} />
         <Route path="/item-details/:nftId" element={<ItemDetails />} />
       </Routes>
       <Footer />
